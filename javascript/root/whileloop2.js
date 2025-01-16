@@ -40,4 +40,4 @@ let run = true;
 while(run) {
   let inputValue = prompt("100점 이상이며 종료")
   let scores = parseInt(inputValue)
-}
+  if()

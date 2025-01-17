@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  연도:<input type = "number" name="year"><button>연도</button>
   월:<input type="number" name="month"><button>달력</button>
   <div id="show"></div>
 
@@ -37,40 +38,21 @@
   </table> -->
   <script>
     // 달력버튼 클릭하면 월정보를 입력받아서 출력. 
+    
     document.querySelector('button').addEventListener('click', function () {
       let month = document.querySelector('[name="month"]').value;
       console.log(month);
       makeCalendar(month);
     })
 
-    // 월정보를 알려주면 공백 반환.
-    function getDays(month = 1) {
-      if (month == 1) {
-        return 3;
-      } else if (month == 2 || month == 3) {
-        return 6;
-      } else if (month == 4) {
-        return 2;
-      } else if (month == 5) {
-        return 4;
-      } else if (month == 6) {
-        return 0;
-      }
-    }
-
-    // 월정보를 알려주면 말일 반환.
-    function getLastDate(month = 1) {
-      if (month == 1 || month == 3 || month == 5) {
-        return 31;
-      } else if (month == 2) {
-        return 28;
-      } else {
-        return 30;
-      }
-    }
+    
+    
 
     // 달력출력함수.
-    function makeCalendar(month = 1) {
+    function makeCalendar(year=2025, month = 1) {
+      let now = new Date{}
+      //년도, 월 지정.
+      now.setFullYear(year);
 
       let spaces = getDays(month); // 1일의 위치(공백) 계산.
       let lastDate = getLastDate(month); // 월의 말일 계산..
